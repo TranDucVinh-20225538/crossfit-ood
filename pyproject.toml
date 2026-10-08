@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crossfit-ood"
+version = "0.1.0"
+description = "Group-aware (cross-fitted) evaluation of feature-based OOD detectors: leaky vs cross-fitted AUROC, refit-aware grouped jackknife intervals, threshold transfer to new groups."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Tran Duc Vinh" }]
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.22", "scikit-learn>=1.0"]
+keywords = ["out-of-distribution detection", "data leakage", "cross-fitting", "evaluation", "medical imaging"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Homepage = "https://github.com/TranDucVinh-20225538/crossfit-ood"
+Source = "https://github.com/TranDucVinh-20225538/crossfit-ood"
+Issues = "https://github.com/TranDucVinh-20225538/crossfit-ood/issues"
+Changelog = "https://github.com/TranDucVinh-20225538/crossfit-ood/blob/main/CHANGELOG.md"
+
+[project.scripts]
+crossfit-ood = "crossfit_ood.cli:main"
+
+[project.optional-dependencies]
+gpu = ["torch>=1.12"]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
